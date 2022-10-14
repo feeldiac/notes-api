@@ -6,10 +6,10 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.post('/tasks/add', (req, res) => {
+router.post('/tasks/add', async (req, res) => {
     const task = Task(req.body);
-    console.log(task);
-    res.send('Task added')
+    await task.save()
+    res.redirect('/')
 })
 
 router.get('/about', (req, res) => {
