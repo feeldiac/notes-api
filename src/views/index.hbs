@@ -15,3 +15,14 @@
 
   <button>Add</button>
 </form>
+
+<ul>
+  {{#each tasks}}
+    <li>
+      <p>{{title}}</p>
+      <p>{{description}}</p>
+      <button>Edit</button>
+      <button>Delete</button>
+    </li>
+  {{/each}}
+</ul>
