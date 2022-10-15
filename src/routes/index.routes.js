@@ -36,6 +36,12 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/edit/:id', async (req, res) => {
     const { id } = req.params
     await Task.findByIdAndUpdate(id, req.body)
+    res.redirect('/') //Use redirect to display changes
+})
+
+router.get('/delete/:id', async (req, res) => {
+    const { id } = req.params
+    await Task.findByIdAndDelete(id)
     res.redirect('/')
 })
 
