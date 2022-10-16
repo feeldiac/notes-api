@@ -1,19 +1,37 @@
-<form action='/tasks/{{task._id}}/edit' method='POST'>
-  <label for='title'>Title</label>
-  <input
-    type='text'
-    name='title'
-    id='title'
-    placeholder='Title'
-    value='{{task.title}}'
-  />
-  <label for='description'></label>
-  <textarea
-    name='description'
-    id='description'
-    placeholder='Add a description'
-    rows='3'
-  >{{task.description}}
-  </textarea>
-  <button>Update</button>
-</form>
+<div class='block px-6 py-8 rounded-lg shadow-lg'>
+  <h1 class="text-lg italic hover:not-italic font-semibold text-center text-gray-700">Update task</h1>
+  <form action='/tasks/{{task._id}}/edit' method='POST' class='mx-auto max-w-lg'>
+    <div class='form-group mb-6'>
+      <label
+        for='title'
+        class='form-label inline-block mb-2 text-gray-700'
+      >Title</label>
+      <input
+        type='text'
+        name="title"
+        class='form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+        id='title'
+        aria-describedby='title'
+        placeholder='Enter a title'
+        value='{{task.title}}'
+      />
+    </div>
+    <div class='form-group mb-6'>
+      <label
+        for='description'
+        class='form-label inline-block mb-2 text-gray-700'
+      >Description</label>
+      <textarea
+        name='description'
+        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        id='description'
+        rows='7'
+        aria-describedby="description"
+        placeholder='Enter a description.'
+      >{{task.description}}</textarea>
+    </div>
+    <button
+      class='px-6 py-2.5 bg-sky-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-600 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'
+    >Update task</button>
+  </form>
+</div>

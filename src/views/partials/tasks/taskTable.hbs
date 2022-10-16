@@ -1,28 +1,71 @@
-<table>
-  <thead>
-    <tr>
-      <th>N.</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each tasks}}
-      <tr>
-        <td>{{@index}}</td>
-        <td>{{title}}</td>
-        <td>{{description}}</td>
-        <td>
-            {{#if done}}
-                <a href="/tasks/{{_id}}/toggle_done">Undone</a>
-            {{else}}
-                <a href="/tasks/{{_id}}/toggle_done">Done</a>
-            {{/if}}
-          <a href="/tasks/{{_id}}/delete">Delete</a>
-          <a href="/tasks/{{_id}}/edit">Update</a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class='block px-6 py-8 rounded-lg shadow-lg overflow-hidden'>
+  <h1 class="text-lg italic hover:not-italic font-semibold text-center text-gray-700 mb-3">List tasks</h1>
+  <div class='flex flex-col'>
+    <div class='overflow-x-auto sm:-mx-6 lg:-mx-8'>
+      <div class='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
+        <div class='overflow-hidden'>
+          {{#if tasks}}
+          <table class='min-w-full border'>
+            <thead class='bg-white border-b'>
+              <tr>
+                <th
+                  scope='col'
+                  class='text-sm font-medium text-gray-900 px-6 py-4 text-left hidden md:block'
+                >N.</th>
+                <th
+                  scope='col'
+                  class='text-sm font-medium text-gray-900 px-6 py-4 text-left'
+                >Title</th>
+                <th
+                  scope='col'
+                  class='text-sm font-medium text-gray-900 px-6 py-4 text-left'
+                >Description</th>
+                <th
+                  scope='col'
+                  class='text-sm font-medium text-gray-900 px-6 py-4 text-left'
+                >Operations</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each tasks}}
+                <tr
+                  class='bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100'
+                >
+                  <td class='px-6 py-4 text-sm font-medium text-gray-900 hidden md:table-cell'>
+                    <a href='/tasks/{{_id}}/edit'>
+                      {{inc @index}}
+                    </a>
+                  </td>
+                  <td class='text-sm text-gray-900 font-light px-6 py-4'>
+                    <a href='/tasks/{{_id}}/edit'>
+                      {{title}}
+                    </a>
+                  </td>
+                  <td class='text-sm text-gray-900 font-light px-6 py-4'>
+                    <a href='/tasks/{{_id}}/edit'>
+                      {{description}}
+                    </a>
+                  </td>
+                  <td class='text-sm text-gray-900 font-light px-6 py-4'>
+                    {{#if done}}
+                      <a href='/tasks/{{_id}}/toggle_done'>Undone</a>
+                    {{else}}
+                      <a href='/tasks/{{_id}}/toggle_done'>Done</a>
+                    {{/if}}
+                    <a href='/tasks/{{_id}}/delete'>Delete</a>
+                    <a href='/tasks/{{_id}}/edit'>Update</a>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          {{else}}
+          <div class="mx-auto py-36">
+            <p class="text-center text-gray-500">This is empty 🥱</p>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

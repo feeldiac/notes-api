@@ -4,9 +4,13 @@ const router = Router()
 
 router.get('/', renderTasks)
 
+router.get('/create', (req, res) => {
+    res.render('create')
+})
+
 router.post('/tasks/add', createTask)
 
-router.get('/tasks/edit', renderEdit)
+router.get('/tasks/:id/edit', renderEdit)
 
 //Use POST as PUT
 router.post('/tasks/:id/edit', editTask)

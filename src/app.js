@@ -9,6 +9,11 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'));
 
 const hbs = create({
+    helpers: {
+        inc: function (value, options) {
+            return parseInt(value) + 1;
+        }
+    },
     layoutsDir: path.join(app.get("views"), "layouts"),
     //One can config the partialsDir too
     defaultLayout: "main",
