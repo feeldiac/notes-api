@@ -6,7 +6,7 @@ router.get('/', renderTasks)
 
 router.post('/tasks/add', createTask)
 
-router.get('/tasks/:id/edit', renderEdit)
+router.get('/tasks/edit', renderEdit)
 
 //Use POST as PUT
 router.post('/tasks/:id/edit', editTask)
